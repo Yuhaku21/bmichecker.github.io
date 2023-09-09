@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>BMI Checker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   </head>
   <body>
@@ -104,7 +104,7 @@
     </footer>
     <!--Akhirfooter-->
     <script>
-      function hitung() {
+     function hitung() {
         document.getElementById("pesan").innerHTML =
           "<b>Pesan untuk kamu: </b>Makanlah dalam porsi yang sesuai dengan kebutuhan tubuh Anda, dan jangan lupa untuk minum air yang cukup. Pola makan seimbang akan membantu Anda menjaga berat badan yang sehat, meningkatkan energi, dan menjaga kesehatan jangka panjang.";
         var tinggiBadan = parseFloat(document.getElementById("tinggi").value);
@@ -112,6 +112,17 @@
         let hasil = beratBadan / (tinggiBadan * tinggiBadan);
 
         document.getElementById("hasil").innerHTML = "<b>Hasil perhitungan BMI: </b>" + hasil.toFixed(2);
+
+        // Pengkondisian
+        if (hasil < 18.5) {
+          document.getElementById("pesan").innerHTML = "<b>Pesan untuk kamu: </b>Berat badan Anda kurang. Konsultasikan dengan dokter atau ahli gizi untuk mendapatkan rekomendasi diet dan olahraga yang tepat.";
+        } else if (hasil >= 18.5 && hasil <= 24.9) {
+          document.getElementById("pesan").innerHTML = "<b>Pesan untuk kamu: </b>Berat badan Anda normal. Lanjutkan pola makan dan olahraga yang sehat.";
+        } else if (hasil >= 25 && hasil <= 29.9) {
+          document.getElementById("pesan").innerHTML = "<b>Pesan untuk kamu: </b>Berat badan Anda berlebih. Kurangi asupan kalori dan tingkatkan aktivitas fisik.";
+        } else {
+          document.getElementById("pesan").innerHTML = "<b>Pesan untuk kamu: </b>Anda obesitas. Konsultasikan dengan dokter atau ahli gizi untuk mendapatkan rekomendasi diet dan olahraga yang tepat.";
+        }
       }
     </script>
 
